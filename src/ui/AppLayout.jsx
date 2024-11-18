@@ -7,13 +7,15 @@ function AppLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
   return (
-    <div className="layout">
+    <div className="relative flex h-screen flex-col gap-2">
       {isLoading && <Loader />}
       <Header />
 
-      <main>
-        <Outlet />
-      </main>
+      <div className="mb-auto overflow-y-auto">
+        <main className="mx-auto max-w-3xl">
+          <Outlet />
+        </main>
+      </div>
 
       <CartOverview />
     </div>
